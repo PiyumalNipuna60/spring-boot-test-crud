@@ -1,5 +1,8 @@
 package com.example.demo.controlller;
 
+import com.example.demo.dto.UserDTO;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/user")
@@ -7,14 +10,17 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/getUser")
     public String getUser(){
         return "get-all-user";
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(){
-        return "save-user";
+    public UserDTO saveUser(@RequestBody UserDTO userDTO){
+        return userService.saveUser(userDTO);
     }
 
     @PutMapping("/updateUser")
