@@ -5,6 +5,8 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("/api/user")
 @RestController
 @CrossOrigin
@@ -14,8 +16,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/getUser")
-    public String getUser(){
-        return "get-all-user";
+    public List<UserDTO> getUser(){
+        return userService.getAllUser();
     }
 
     @PostMapping("/saveUser")
