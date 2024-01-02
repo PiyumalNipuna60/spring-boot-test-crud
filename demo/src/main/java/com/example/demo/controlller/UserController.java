@@ -36,11 +36,8 @@ public class UserController {
         return "Resource with ID " + id + " deleted successfully";
     }
 
-    @GetMapping("/searchUser")
-    public String searchUser(){
-
+    @GetMapping("/searchUser/{id}")
+    public Object searchUser(@PathVariable int id){
+        return userService.searchUser(id);
     }
-
-
-
 }

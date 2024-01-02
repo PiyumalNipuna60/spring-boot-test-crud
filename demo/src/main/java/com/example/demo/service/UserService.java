@@ -43,4 +43,10 @@ public class UserService {
         return true;
     }
 
+    public Object searchUser(int id) {
+        return userRepo.findById(id);
+    }
+
+
+
 }
