@@ -32,8 +32,11 @@ public class UserController {
 
     @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable  int id){
-         userService.deleteUser(id);
-        return "Resource with ID " + id + " deleted successfully";
+        if (userService.deleteUser(id)){
+            return "Resource with ID " + id + " deleted successfully";
+        }else{
+            return "Something Wrong..!";
+        }
     }
 
     @GetMapping("/searchUser/{id}")

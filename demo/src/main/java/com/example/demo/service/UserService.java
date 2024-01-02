@@ -39,12 +39,21 @@ public class UserService {
     }
 
     public boolean deleteUser(int id) {
-        userRepo.deleteById(id);
-        return true;
+        if(userRepo.existsById(id)){
+            userRepo.deleteById(id);
+            return true;
+        }else {
+            return false;
+        }
+
     }
 
     public Object searchUser(int id) {
-        return userRepo.findById(id);
+        if(userRepo.existsById(id)){
+            return userRepo.findById(id);
+        }else {
+            return null;
+        }
     }
 
 
