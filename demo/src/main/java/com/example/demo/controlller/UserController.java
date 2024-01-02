@@ -30,14 +30,15 @@ public class UserController {
         return userService.updateUser(userDTO);
     }
 
-    @DeleteMapping("/deleteUser")
-    public String deleteUser(){
-        return "delete-user";
+    @DeleteMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable  int id){
+         userService.deleteUser(id);
+        return "Resource with ID " + id + " deleted successfully";
     }
 
     @GetMapping("/searchUser")
     public String searchUser(){
-        return "search-user";
+
     }
 
 
