@@ -56,6 +56,14 @@ public class UserService {
         }
     }
 
+    public Object searchByUserName(String id,String name) {
+        if(userRepo.existsById(Integer.valueOf(id))){
+            return userRepo.findByName(id,name);
+        }else {
+            return null;
+        }
+    }
+
 
 
 }

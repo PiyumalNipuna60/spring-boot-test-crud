@@ -43,4 +43,9 @@ public class UserController {
     public Object searchUser(@PathVariable int id){
         return userService.searchUser(id);
     }
+
+    @GetMapping("/searchByUserName/{id}/{name}")
+    public Object searchUser(@PathVariable String id, @PathVariable String name){
+        return userService.searchByUserName(id,name);
+    }
 }
